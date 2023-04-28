@@ -1,0 +1,26 @@
+<div class="card my-5">
+    <div class="card-body">
+        <table class="table table-bordered table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let user of users">
+                    <td>{{ user.id }}</td>
+                    <td contenteditable="true" (keyup)="editUserName($event, user)">{{ user.name }}</td>
+                    <td contenteditable="true" (keyup)="editUserEmail($event, user)"><a
+                            href=" mailto:{{ user.email }}">{{
+                            user.email }}</a></td>
+                    <td><button value="{{user.id}}" (click)="onDelete($event)" class=" bi bi-trash"
+                            data-toggle="tooltip" title="Delete"></button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
